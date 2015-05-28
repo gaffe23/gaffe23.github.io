@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "test post"
+date:   2015-05-28 03:48:00
+categories: jekyll
+---
+
+This is really just a test post to see if I have Jekyll up and running properly. Hope it works...
