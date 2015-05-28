@@ -6,3 +6,79 @@ categories: jekyll
 ---
 
 This is really just a test post to see if I have Jekyll up and running properly. Hope it works...
+
+{% highlight ruby %}
+def show
+  @widget = Widget(params[:id])
+  respond_to do |format|
+    format.html # show.html.erb
+    format.json { render json: @widget }
+  end
+end
+{% endhighlight %}
+
+Here's a python example:
+
+{% highlight python %}
+#!/usr/bin/python
+
+def asdf():
+  print "inside asdf()"
+
+for i in xrange(12):
+  asdf()
+{% endhighlight %}
+
+And here's some stuff pasted out of IDA, formatted as `nasm`:
+
+{% highlight nasm %}
+.text:080484C4                ; =============== S U B R O U T I N E =======================================
+.text:080484C4
+.text:080484C4                ; Attributes: bp-based frame
+.text:080484C4
+.text:080484C4                                public getpath
+.text:080484C4                getpath         proc near               ; CODE XREF: main+6p
+.text:080484C4
+.text:080484C4                userInputBuffer = byte ptr -4Ch
+.text:080484C4                copyOfRetAddr   = dword ptr -0Ch
+.text:080484C4
+.text:080484C4 55                             push    ebp
+.text:080484C5 89 E5                          mov     ebp, esp
+.text:080484C7 83 EC 68                       sub     esp, 68h
+.text:080484CA B8 20 86 04 08                 mov     eax, offset format ; "input path please: "
+.text:080484CF 89 04 24                       mov     [esp], eax      ; format
+.text:080484D2 E8 0D FF FF FF                 call    _printf
+.text:080484D7 A1 80 97 04 08                 mov     eax, ds:stdout@@GLIBC_2_0
+.text:080484DC 89 04 24                       mov     [esp], eax      ; stream
+.text:080484DF E8 F0 FE FF FF                 call    _fflush
+.text:080484E4 8D 45 B4                       lea     eax, [ebp+userInputBuffer]
+.text:080484E7 89 04 24                       mov     [esp], eax      ; s
+.text:080484EA E8 B5 FE FF FF                 call    _gets
+.text:080484EF 8B 45 04                       mov     eax, [ebp+4]    ; ret addr for getpath()
+.text:080484F2 89 45 F4                       mov     [ebp+copyOfRetAddr], eax
+.text:080484F5 8B 45 F4                       mov     eax, [ebp+copyOfRetAddr]
+.text:080484F8 25 00 00 00 B0                 and     eax, 0B0000000h
+.text:080484FD 3D 00 00 00 B0                 cmp     eax, 0B0000000h
+.text:08048502 75 20                          jnz     short loc_8048524
+.text:08048504 B8 34 86 04 08                 mov     eax, offset aBzzztP ; "bzzzt (%p)\n"
+.text:08048509 8B 55 F4                       mov     edx, [ebp+copyOfRetAddr]
+.text:0804850C 89 54 24 04                    mov     [esp+4], edx
+.text:08048510 89 04 24                       mov     [esp], eax      ; format
+.text:08048513 E8 CC FE FF FF                 call    _printf
+.text:08048518 C7 04 24 01 00+                mov     dword ptr [esp], 1 ; status
+.text:0804851F E8 A0 FE FF FF                 call    __exit
+.text:08048524                ; ---------------------------------------------------------------------------
+.text:08048524
+.text:08048524                loc_8048524:                            ; CODE XREF: getpath+3Ej
+.text:08048524 B8 40 86 04 08                 mov     eax, offset aGotPathS ; "got path %s\n"
+.text:08048529 8D 55 B4                       lea     edx, [ebp+userInputBuffer]
+.text:0804852C 89 54 24 04                    mov     [esp+4], edx
+.text:08048530 89 04 24                       mov     [esp], eax      ; format
+.text:08048533 E8 AC FE FF FF                 call    _printf
+.text:08048538 8D 45 B4                       lea     eax, [ebp+userInputBuffer]
+.text:0804853B 89 04 24                       mov     [esp], eax      ; s
+.text:0804853E E8 B1 FE FF FF                 call    _strdup
+.text:08048543 C9                             leave
+.text:08048544 C3                             retn
+.text:08048544                getpath         endp
+{% endhighlight %}
