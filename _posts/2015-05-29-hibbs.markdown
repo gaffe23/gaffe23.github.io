@@ -2,7 +2,7 @@
 layout: post
 title:  "Hibbs writeup - OpenToAll practice CTF"
 date:   2015-05-28 03:48:00
-categories: reversing writeups
+categories: reversing ctf writeups
 ---
 
 Recently, Eriner set up a practice CTF event for the OpenToAll CTF team, and he asked Alessandro to create a reverse engineering challenge for it. "Hibbs" is the challenge Alessandro created. It consists of [an executable named Hibbs.exe](https://github.com/Eriner/OTACTF/raw/master/Practice-1/RE/Hibbs/Hibbs.exe). I have no idea what it will actually do, so I fire up a 64-bit Windows VM and run it. However, the program just crashes:
